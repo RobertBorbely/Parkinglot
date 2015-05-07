@@ -1,0 +1,18 @@
+%h3 Post a comment
+= form_for [@parkinghouse, @comment] do |f|
+  - if @parkinghouse.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@parkinghouse.errors.count, "error")} prohibited this parkinghouse from being saved:"
+      %ul
+        - @parkinghouse.errors.full_messages.each do |msg|
+          %li= msg
+
+
+  .field
+    = f.label :user_name
+    = f.text_field :user_name
+  .field
+    = f.label :body
+    = f.text_area :body
+  .actions
+    = f.submit 'Save'

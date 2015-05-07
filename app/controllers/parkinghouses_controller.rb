@@ -10,6 +10,8 @@ class ParkinghousesController < ApplicationController
   # GET /parkinghouses/1
   # GET /parkinghouses/1.json
   def show
+    @comment = Comment.new
+    @comment.parkinghouse_id = @parkinghouse.id
   end
 
   # GET /parkinghouses/new

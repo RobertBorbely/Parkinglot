@@ -13,6 +13,11 @@
   %b Image:
   = link_to @parkinghouse.image.url do
     =image_tag @parkinghouse.image.url(:thumbnail)
+%h3 Komment:
+=render partial: 'parkinghouses/comment', collection: @parkinghouse.comments
+
+= render partial: 'comments/form' 
+
 
 = link_to 'Edit', edit_parkinghouse_path(@parkinghouse)
 \|
