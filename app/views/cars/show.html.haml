@@ -1,0 +1,23 @@
+%p#notice= notice
+
+%p
+  %b Plate:
+  = @car.plate
+%p
+  %b Lastvisit:
+  = @car.lastvisit
+%p
+  %b Allvisit:
+  = @car.allvisit
+%p
+  %b Parkinghouse:
+  = @car.parkinghouse
+%p
+  %b Képek:
+  -@car.car_images.each do |car_image|
+    =link_to car_image.image.url do
+      =image_tag car_image.image.url(:thumbnail)
+
+= link_to 'Edit', edit_car_path(@car)
+\|
+= link_to 'Back', cars_path

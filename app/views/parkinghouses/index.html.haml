@@ -1,0 +1,29 @@
+%h1 Listing parkinghouses
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Address
+      %th Description
+      %th Image
+      %th
+      %th
+      %th
+
+  %tbody
+    - @parkinghouses.each do |parkinghouse|
+      %tr
+        %td= parkinghouse.name
+        %td= parkinghouse.address
+        %td= parkinghouse.description
+        %td
+          =link_to parkinghouse.image.url do
+            =image_tag parkinghouse.image.url(:thumbnail) if parkinghouse.image.exists?
+        %td= link_to 'Show', parkinghouse
+        %td= link_to 'Edit', edit_parkinghouse_path(parkinghouse)
+        %td= link_to 'Destroy', parkinghouse, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Parkinghouse', new_parkinghouse_path

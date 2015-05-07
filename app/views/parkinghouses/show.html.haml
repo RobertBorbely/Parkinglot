@@ -1,0 +1,19 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @parkinghouse.name
+%p
+  %b Address:
+  = @parkinghouse.address
+%p
+  %b Description:
+  = @parkinghouse.description
+%p
+  %b Image:
+  = link_to @parkinghouse.image.url do
+    =image_tag @parkinghouse.image.url(:thumbnail)
+
+= link_to 'Edit', edit_parkinghouse_path(@parkinghouse)
+\|
+= link_to 'Back', parkinghouses_path

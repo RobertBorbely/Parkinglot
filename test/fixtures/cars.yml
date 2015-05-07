@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  plate: 1
+  lastvisit: 2015-05-07
+  allvisit: 1
+  parkinghouse_id: 
+
+two:
+  plate: 1
+  lastvisit: 2015-05-07
+  allvisit: 1
+  parkinghouse_id: 
