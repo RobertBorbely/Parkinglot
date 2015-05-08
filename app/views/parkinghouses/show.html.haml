@@ -16,7 +16,11 @@
 %h3 Komment:
 =render partial: 'parkinghouses/comment', collection: @parkinghouse.comments
 
-= render partial: 'comments/form' 
+=render partial: 'parkinghouses/car', collection: @parkinghouse.cars
+
+=render partial: 'cars/form'
+
+=render partial: 'comments/form' if user_signed_in?
 
 
 = link_to 'Edit', edit_parkinghouse_path(@parkinghouse)

@@ -12,6 +12,9 @@ class ParkinghousesController < ApplicationController
   def show
     @comment = Comment.new
     @comment.parkinghouse_id = @parkinghouse.id
+
+    @car = Car.new
+    @car.parkinghouse_id = @parkinghouse_id
   end
 
   # GET /parkinghouses/new

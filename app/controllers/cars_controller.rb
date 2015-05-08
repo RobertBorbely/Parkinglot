@@ -25,10 +25,11 @@ class CarsController < ApplicationController
   # POST /cars.json
   def create
     @car = Car.new(car_params)
+    @car.parkinghouse_id = params[:parkinghouse_id]
 
     respond_to do |format|
       if @car.save
-        format.html { redirect_to @car, notice: 'Car was successfully created.' }
+        format.html { redirect_to parkinghouse_path(@car.parkinghouse), notice: 'Car was successfully created.' }
         format.json { render :show, status: :created, location: @car }
       else
         format.html { render :new }
