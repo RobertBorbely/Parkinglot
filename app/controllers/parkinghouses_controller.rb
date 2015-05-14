@@ -5,6 +5,7 @@ class ParkinghousesController < ApplicationController
   # GET /parkinghouses.json
   def index
     @parkinghouses = Parkinghouse.all
+    @count = 0
   end
 
   # GET /parkinghouses/1

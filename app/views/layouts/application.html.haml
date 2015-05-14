@@ -1,11 +1,11 @@
 !!!
 %html
-  %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Parkinglot
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = csrf_meta_tags
-  %body
-  	= render partial: "layouts/navbar"
-  	.container
-    	= yield
+	%head
+		%meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+		%title Parkinglot
+		= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+		= csrf_meta_tags
+	%body
+		= render partial: "layouts/navbar"
+		.container
+			= yield

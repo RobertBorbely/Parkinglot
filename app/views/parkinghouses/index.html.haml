@@ -1,33 +1,10 @@
-= render partial: "layouts/navbar"
-.container
-  %h1 Listing parkinghouses
-
-  %table
-    %thead
-      %tr
-        %th Name
-        %th Address
-        %th Description
-        %th Image
-        %th
-        %th
-        %th
-
-    %tbody
-      - @parkinghouses.each do |parkinghouse|
-        %tr
-          %td= parkinghouse.name
-          %td= parkinghouse.address
-          %td= parkinghouse.description
-          %td
-            =link_to parkinghouse.image.url do
-              =image_tag parkinghouse.image.url(:thumbnail) if parkinghouse.image.exists?
-          %td= link_to 'Show', parkinghouse
-          %td
-          - if can? :update, @parkinghouse
-            = link_to 'Edit', edit_parkinghouse_path(parkinghouse)
-          %td
-          - if can? :destroy, @parkinghouse
-            = link_to 'Destroy', parkinghouse, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-  %br
+%h1 Listing parkinghouses
+.row
+  - @parkinghouses.each do |parkinghouse|
+    %div{ :class => "col-md-4 col-sm-6 col-xs-12 text-center" }
+      =link_to parkinghouse, :class => "thumbnail" do
+        =image_tag parkinghouse.image.url(:main) if parkinghouse.image.exists?   
+      %h4=parkinghouse.name
+      %p=parkinghouse.address
+      %p=parkinghouse.description  
+        

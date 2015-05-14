@@ -5,18 +5,18 @@
       %ul
         - @parkinghouse.errors.full_messages.each do |msg|
           %li= msg
-
-  .field
-    = f.label :name, "Név: "
-    = f.text_field :name
-  .field
-    = f.label :address, "Cím: "
-    = f.text_field :address
-  .field
-    = f.label :description, "Leírás :"
-    = f.text_area :description
-  .field 
-    = f.label :image, "Kép feltölés: "
-    = f.file_field :image
-  .actions
-    = f.submit 'Save'
+  %form{ :role => "form" }
+    .form-group
+      = f.label :name, "Név: "
+      = f.text_field :name, :class => "form-control"
+    .form-group
+      = f.label :address, "Cím: "
+      = f.text_field :address, :class => "form-control"
+    .form-group
+      = f.label :description, "Leírás :"
+      = f.text_area :description, :class => "form-control"
+    .form-group
+      = f.label :image, "Kép feltölés: "
+      = f.file_field :image
+    .actions
+      = f.submit 'Save', :class => "btn btn-success"
