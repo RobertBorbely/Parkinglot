@@ -11,11 +11,10 @@ class ParkinghousesController < ApplicationController
   # GET /parkinghouses/1
   # GET /parkinghouses/1.json
   def show
-    @comment = Comment.new
-    @comment.parkinghouse_id = @parkinghouse.id
-
-    @car = Car.new
-    @car.parkinghouse_id = @parkinghouse_id
+    @comment = Comment.new parkinghouse: @parkinghouse
+    
+    @car = Car.new parkinghouse: @parkinghouse
+    2.times { @car.car_images.build}
   end
 
   # GET /parkinghouses/new
@@ -75,6 +74,6 @@ class ParkinghousesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def parkinghouse_params
-      params.require(:parkinghouse).permit(:name, :address, :description, :image)
+      params.require(:parkinghouse).permit(:name, :address, :description, :image, :car_images_attributes)
     end
 end

@@ -2,12 +2,12 @@
 	.container-fluid
 		.container
 			=link_to "Parkinghouse", root_path, :class => "navbar-brand navbar-left"
-			%ul{ :class => "nav navbar-nav navbar-right" }
+			%ul.nav.navbar-nav.navbar-right
 				%li= link_to 'New Parkinghouse', new_parkinghouse_path
 				- if user_signed_in?
-					%li=current_user.email
+					%li= link_to current_user.email, edit_user_registration_path
 				- else
-					%li=link_to 'Sign in', new_user_session_path
+					%li= link_to 'Sign in', new_user_session_path
 				- if user_signed_in?
 					%li= link_to 'Sign out', destroy_user_session_path, :method => :delete
 				- else

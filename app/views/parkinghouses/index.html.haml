@@ -6,5 +6,9 @@
         =image_tag parkinghouse.image.url(:main) if parkinghouse.image.exists?   
       %h4=parkinghouse.name
       %p=parkinghouse.address
-      %p=parkinghouse.description  
+      %p=parkinghouse.description
+      - if can? :update, parkinghouse
+        =link_to 'Edit', edit_parkinghouse_path(parkinghouse)
+      - if can? :destroy, parkinghouse
+        = link_to 'Destroy', parkinghouse, :method => :delete, :data => { :confirm => 'Are you sure?' } 
         

@@ -5,4 +5,8 @@ class Car < ActiveRecord::Base
 
   accepts_nested_attributes_for :car_images, allow_destroy: true
 
+  def to_s
+    "#{plate}"
+  end
+
 end

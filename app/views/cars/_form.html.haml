@@ -1,13 +1,23 @@
-= form_for [@parkinghouse, @car] do |f|
+= form_for [@parkinghouse, @car], multipart: true do |f|
   - if @car.errors.any?
     #error_explanation
       %h2= "#{pluralize(@car.errors.count, "error")} prohibited this car from being saved:"
       %ul
         - @car.errors.full_messages.each do |msg|
           %li= msg
-
   .field
     = f.label :plate
     = f.text_field :plate
+  .field
+    = f.label :color
+    = f.text_field :color
+  .field
+    = f.label :licence
+    = f.check_box :licence, default: false
+  
+  = f.fields_for :car_images do |car_image|
+    .field
+      = f.label "kép"
+      = car_image.file_field :image
   .actions
     = f.submit 'Save'
