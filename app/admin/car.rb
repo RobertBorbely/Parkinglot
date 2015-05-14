@@ -28,6 +28,10 @@ permit_params :plate, :color, :licence, :car_images_attributes, :allvisit
   filter :color_cont, collection: -> { Car.All },label: "Color"
   filter :licence
 
+  scope :all_car
+  scope :licence_true
+  scope :licence_false
+
   show do |car|
     attributes_table do
       row :id
